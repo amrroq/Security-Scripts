@@ -1,0 +1,36 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: bruteforcers-detector
+  namespace: bruteforcers
+spec:
+  schedule: "* 3 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: bruteforcers
+        spec:
+          containers:
+          -
+            env:
+              -
+                name: ESUSER
+                valueFrom:
+                  secretKeyRef:
+                    key: USERNAME
+                    name: es-creds
+              -
+                name: ESPASS
+                valueFrom:
+                  secretKeyRef:
+                    key: PASSWORD
+                    name: es-creds  
+            image: ucscsec/infosec:bruteforcers
+            name: bruteforcers-pod
+            imagePullPolicy: Always
+          imagePullSecrets:
+              - name: dockerhub-creds
+          restartPolicy: OnFailure    
+
