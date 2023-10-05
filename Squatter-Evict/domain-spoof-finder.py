@@ -1,3 +1,16 @@
+"""
+domain-spoof-finder.py
+v1
+Written by Aaron White, UCSC
+=====
+This script takes a domain as input and runs it through the DNSTwister fuzz API to get a list of 
+fuzzed domain names. These domains are then filtered for only those that are actual live domains.
+The resulting list is checked against MISP for any intel hits. If any domains match, they are rpz'd.
+Finally, an email is sent to a chosen recipient.
+
+"""
+
+
 import sys
 import os
 import requests
