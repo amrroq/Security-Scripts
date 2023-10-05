@@ -1,5 +1,5 @@
 """
-es_duo.py
+shibb.py
 v1
 Written by Aaron White, UCSC
 =====
