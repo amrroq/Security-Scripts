@@ -69,7 +69,7 @@ def intel_check(domains):
 
 smtp_server = "smtp.blah.com"
 port = 465
-password = SOlidG0ldhi7z
+password = 
 sender = "blah@blah.com"
 receiver = "blah@blah.com"
 
